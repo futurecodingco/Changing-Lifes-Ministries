@@ -6,7 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter, Link } from '../lib/router.tsx';
 import { loadStoredImages } from '../lib/storage.ts';
-import jenniferDefaultPortrait from '../assets/images/jennifer_naude_1791975308457.jpg';
+import jenniferCanvaPortrait from '../assets/images/jennifer_naude_canva.jpg';
 import {
   Heart,
   Flame,
@@ -23,7 +23,9 @@ import {
   ArrowRight,
   Check,
   Quote,
-  Feather
+  Feather,
+  ZoomIn,
+  X
 } from 'lucide-react';
 
 interface CondolenceMessage {
@@ -78,10 +80,11 @@ export function TributePage() {
   const { navigate } = useRouter();
 
   // Permanent memorial portrait
-  const [photoSrc, setPhotoSrc] = useState<string>(jenniferDefaultPortrait);
+  const [photoSrc, setPhotoSrc] = useState<string>(jenniferCanvaPortrait);
+  const [showPhotoModal, setShowPhotoModal] = useState<boolean>(false);
 
   // Candles lit state
-  const [candleCount, setCandleCount] = useState<number>(142);
+  const [candleCount, setCandleCount] = useState<number>(0);
   const [hasLitCandle, setHasLitCandle] = useState<boolean>(false);
   const [candleFlicker, setCandleFlicker] = useState<boolean>(true);
 
@@ -96,20 +99,20 @@ export function TributePage() {
   // Load persisted photo & custom tributes from storage
   useEffect(() => {
     try {
-      const storedPhoto = localStorage.getItem('clm_jennifer_photo');
-      if (storedPhoto) {
-        setPhotoSrc(storedPhoto);
-      } else {
-        loadStoredImages().then((stored) => {
-          if (stored['jennifer_naude_memorial.jpg']) {
-            setPhotoSrc(stored['jennifer_naude_memorial.jpg']);
-          }
-        }).catch(() => {});
-      }
+      localStorage.removeItem('clm_jennifer_photo');
+      setPhotoSrc(jenniferCanvaPortrait);
 
       const storedCandles = localStorage.getItem('clm_jennifer_candles');
-      if (storedCandles) {
-        setCandleCount(parseInt(storedCandles, 10));
+      if (storedCandles && storedCandles !== '142') {
+        const parsed = parseInt(storedCandles, 10);
+        setCandleCount(isNaN(parsed) ? 0 : parsed);
+      } else {
+        setCandleCount(0);
+        try {
+          localStorage.setItem('clm_jennifer_candles', '0');
+        } catch {
+          // ignore
+        }
       }
 
       const storedUserCandle = localStorage.getItem('clm_jennifer_user_lit');
@@ -278,13 +281,23 @@ export function TributePage() {
                 <Sparkles className="w-3.5 h-3.5" />
               </div>
 
-              {/* Portrait Frame (Clean, unobstructed, permanent) */}
-              <div className="relative mx-auto w-64 sm:w-72 aspect-[3/4] rounded-2xl overflow-hidden border-4 border-[#F4A261]/60 shadow-xl bg-[#2D5A27]/10">
+              {/* Portrait Frame (Clean, unobstructed, permanent with HD Zoom) */}
+              <div
+                className="relative mx-auto w-64 sm:w-72 aspect-[3/4] rounded-2xl overflow-hidden border-4 border-[#F4A261]/60 shadow-xl bg-[#2D5A27]/10 cursor-zoom-in group"
+                onClick={() => setShowPhotoModal(true)}
+                title="Click to view full portrait"
+              >
                 <img
                   src={photoSrc}
                   alt="Miss Jennifer Naude - Company Secretary Memorial"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-300"
                 />
+                <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold">
+                  <span className="bg-black/65 px-3 py-1.5 rounded-full backdrop-blur-xs flex items-center gap-1.5 shadow-md">
+                    <ZoomIn className="w-3.5 h-3.5" />
+                    <span>View Full Portrait</span>
+                  </span>
+                </div>
               </div>
 
               {/* Dignified Memorial Inscription & Dates */}
@@ -603,6 +616,47 @@ export function TributePage() {
           </div>
         </div>
       </section>
+
+      {/* High-Definition Memorial Portrait Lightbox Modal */}
+      {showPhotoModal && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+          onClick={() => setShowPhotoModal(false)}
+        >
+          <div
+            className="relative max-w-3xl w-full max-h-[90vh] flex flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setShowPhotoModal(false)}
+              className="absolute -top-12 right-0 sm:-right-4 text-white/80 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors cursor-pointer"
+              title="Close full portrait"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <div className="rounded-2xl overflow-hidden border-2 border-[#F4A261]/60 shadow-2xl bg-black">
+              <img
+                src={photoSrc}
+                alt="Miss Jennifer Naude - Company Secretary Memorial"
+                className="w-auto h-auto max-h-[75vh] object-contain mx-auto"
+              />
+            </div>
+
+            <div className="mt-4 text-center text-white space-y-1">
+              <h4 className="font-serif font-bold text-xl text-[#F4A261]">
+                Miss Jennifer Naude
+              </h4>
+              <p className="text-xs text-white/80">
+                Company Secretary &middot; Born June 22, 1969 &ndash; August 16, 2023 &middot; Changing Life Ministries
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
