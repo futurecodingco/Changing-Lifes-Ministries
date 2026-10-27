@@ -26,10 +26,10 @@ export function LeadershipPage() {
       phone: '+27 81 041 0673',
       email: 'Leonaswartz510@gmail.com',
       notes:
-        'Visionary founder who established Changing Lives Ministries to bring humanitarian care, child nutrition, and enduring faith across South Africa.',
+        'Visionary founder who established Changing Life Ministries to bring humanitarian care, child nutrition, and enduring faith across South Africa.',
     },
     {
-      name: 'Mr. Derrick Swartz',
+      name: 'Mr. Derick Swartz',
       role: 'Chief Executive Officer (CEO)',
       phone: '+27 82 320 0492',
       notes:
@@ -51,10 +51,10 @@ export function LeadershipPage() {
     },
     {
       name: 'Mrs. Phelan Richards',
-      role: 'Treasury Officer',
-      phone: '+27 81 544 7324',
+      role: 'Executive Committee Member & Treasury Officer',
+      phone: '+27 63 136 2390',
       notes:
-        'Responsible for treasury administration, distribution accounting, and receipting of community donations.',
+        'Executive committee member responsible for treasury administration, distribution accounting, and receipting of community donations.',
     },
     {
       name: 'Mr. Leslie Young',
@@ -77,7 +77,7 @@ export function LeadershipPage() {
             Leadership &amp; Office Bearers
           </h1>
           <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Meet the executive council and leadership team guiding Changing Lives Ministries with integrity and stewardship.
+            Meet the executive council and leadership team guiding Changing Life Ministries with integrity and stewardship.
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export function LeadershipPage() {
                 Bishop Leona Swartz (&ldquo;Ma Bishop&rdquo;)
               </h2>
               <span className="text-sm text-[#2B2B2B]/75 font-medium block mt-0.5">
-                Also known as Leona Naude &middot; Changing Lives Ministries
+                Also known as Leona Naude &middot; Changing Life Ministries
               </span>
             </div>
 
@@ -120,7 +120,7 @@ export function LeadershipPage() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-6">
             <div className="md:col-span-8 space-y-4">
               <p className="text-base text-[#2B2B2B] leading-relaxed">
-                As the founding leader and visionary of Changing Lives Ministries, Bishop Leona Swartz (&ldquo;Ma Bishop&rdquo;) has spearheaded community feeding schemes, children&rsquo;s clothing drives, and faith empowerment initiatives across multiple provinces. Her pastoral ministry continues to provide spiritual counsel, family restoration, and loving guidance to vulnerable families.
+                As the founding leader and visionary of Changing Life Ministries, Bishop Leona Swartz (&ldquo;Ma Bishop&rdquo;) has spearheaded community feeding schemes, children&rsquo;s clothing drives, and faith empowerment initiatives across multiple provinces. Her pastoral ministry continues to provide spiritual counsel, family restoration, and loving guidance to vulnerable families.
               </p>
               <div className="bg-white p-4 rounded-xl border border-[#2D5A27]/15 text-xs text-[#2B2B2B]/85 leading-relaxed italic">
                 &ldquo;Our mission has always been clear: to go directly to where people are hurting, bring living hope, feed the hungry, and prove that God makes a way in every wasteland.&rdquo; &mdash; Bishop Leona Swartz
@@ -177,7 +177,7 @@ export function LeadershipPage() {
             </div>
             <div>
               <div className="inline-flex items-center gap-1.5 text-xs uppercase font-bold text-[#F4A261] tracking-wider mb-1">
-                <span>In Loving Memory &middot; Born June 22, 1996 &ndash; August 16, 2023</span>
+                <span>In Loving Memory &middot; Born June 22, 1969 &ndash; August 16, 2023</span>
               </div>
               <h3 className="font-serif font-bold text-2xl text-white">
                 Miss Jennifer Naude &middot; Company Secretary
@@ -226,7 +226,7 @@ export function LeadershipPage() {
 
                   <div>
                     <span className="text-xs uppercase font-bold text-[#E8722A] tracking-wider block mb-1">
-                      {leader.role} &middot; Born June 22, 1996 &ndash; August 16, 2023
+                      {leader.role} &middot; Born June 22, 1969 &ndash; August 16, 2023
                     </span>
                     <h4 className="font-serif font-bold text-xl text-[#2D5A27] mb-2">
                       {leader.name}

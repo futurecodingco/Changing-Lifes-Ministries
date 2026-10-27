@@ -56,7 +56,7 @@ export function HomePage({ whoWeAreImageSrc, onOpenLightbox }: HomePageProps) {
             <div className="w-5 h-5 rounded-full bg-[#E8722A]/20 flex items-center justify-center">
               <Flame className="w-3.5 h-3.5 text-[#F4A261] animate-pulse" />
             </div>
-            <span className="font-semibold text-[#FFF9F0]">In Loving Memory: Miss Jennifer Naude &middot; Born June 22, 1996 &ndash; August 16, 2023</span>
+            <span className="font-semibold text-[#FFF9F0]">In Loving Memory: Miss Jennifer Naude &middot; Born June 22, 1969 &ndash; August 16, 2023</span>
             <span className="text-[#F4A261] font-bold group-hover:translate-x-1 transition-transform flex items-center">
               &middot; Read Tribute &rarr;
             </span>
@@ -67,7 +67,7 @@ export function HomePage({ whoWeAreImageSrc, onOpenLightbox }: HomePageProps) {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight text-white mb-6">
-            Changing Lives Ministries
+            Changing Life Ministries
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-white/95 max-w-2xl leading-relaxed mb-6 font-light">
             A ministry on the move — reaching hearts, transforming communities.
@@ -212,7 +212,7 @@ export function HomePage({ whoWeAreImageSrc, onOpenLightbox }: HomePageProps) {
             />
 
             <p className="text-base sm:text-lg leading-relaxed text-[#2B2B2B] mb-5">
-              Changing Lives Ministries is a registered South African non-profit organization dedicated to lifting up individuals, families, and vulnerable youth across our nation. Established to demonstrate living faith through tangible community action, our teams travel across provinces to provide nutritional relief, educational mentorship, and holistic care.
+              Changing Life Ministries is a registered South African non-profit organization dedicated to lifting up individuals, families, and vulnerable youth across our nation. Established to demonstrate living faith through tangible community action, our teams travel across provinces to provide nutritional relief, educational mentorship, and holistic care.
             </p>
 
             <p className="text-base sm:text-lg leading-relaxed text-[#2B2B2B] mb-6">
@@ -325,7 +325,7 @@ export function HomePage({ whoWeAreImageSrc, onOpenLightbox }: HomePageProps) {
             <div className="lg:col-span-8 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2D5A27]/10 text-[#2D5A27] text-xs font-semibold uppercase tracking-wider">
                 <Heart className="w-3.5 h-3.5 text-[#E8722A] fill-[#E8722A]" />
-                <span>Partner With Changing Lives Ministries</span>
+                <span>Partner With Changing Life Ministries</span>
               </div>
               <h3 className="font-serif text-3xl sm:text-4xl font-bold text-[#1F3E1B]">
                 Direct Absa Bank Donations

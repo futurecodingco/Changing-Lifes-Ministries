@@ -26,10 +26,10 @@ export function Footer() {
             </div>
             <div>
               <h3 className="font-serif font-bold text-xl text-white tracking-wide">
-                Changing Lives Ministries
+                Changing Life Ministries
               </h3>
               <p className="text-xs text-[#F4A261] font-semibold tracking-wider uppercase">
-                Changing Lives &middot; NPO 222-986
+                Changing Life &middot; NPO 222-986
               </p>
             </div>
           </div>
@@ -119,7 +119,8 @@ export function Footer() {
               <Phone className="w-4 h-4 text-[#F4A261] shrink-0 mt-0.5" />
               <div>
                 <span className="text-white font-medium block">Executive Office</span>
-                <span>CEO Mr. Derrick Swartz: <a href="tel:+27823200492" className="text-white hover:underline">+27 82 320 0492</a></span>
+                <span>CEO Mr. Derick Swartz: <a href="tel:+27823200492" className="text-white hover:underline">+27 82 320 0492</a></span>
+                <span className="block text-xs text-[#E2EBDD] mt-0.5">Member Phelan: <a href="tel:+27631362390" className="text-white hover:underline">+27 63 136 2390</a></span>
               </div>
             </div>
 
@@ -137,7 +138,7 @@ export function Footer() {
       {/* Legal Strip */}
       <div className="max-w-7xl mx-auto pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-[#C2D6BA]/75 gap-4">
         <div>
-          <span>&copy; {new Date().getFullYear()} Changing Lives Ministries. Registered South African Non-Profit Organization (NPO 222-986) &middot; NPC 2021/582044/08 &middot; SARS 2223342151.</span>
+          <span>&copy; {new Date().getFullYear()} Changing Life Ministries. Registered South African Non-Profit Organization (NPO 222-986) &middot; NPC 2021/582044/08 &middot; SARS 2223342151.</span>
         </div>
         <div className="flex items-center gap-4">
           <span>Nonprofit Organisations Act, 1997</span>

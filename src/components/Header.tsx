@@ -61,7 +61,7 @@ export function Header() {
                 className="inline-flex items-center gap-1.5 bg-[#F4A261]/15 hover:bg-[#F4A261]/25 text-[#F4A261] hover:text-[#FFF9F0] border border-[#F4A261]/40 px-3 py-1 rounded-full text-xs font-medium transition-all group shadow-xs"
               >
                 <Flame className="w-3.5 h-3.5 text-[#F4A261] animate-pulse group-hover:scale-110 transition-transform" />
-                <span>In Loving Memory: Miss Jennifer Naude (1996&ndash;2023)</span>
+                <span>In Loving Memory: Miss Jennifer Naude (1969&ndash;2023)</span>
                 <span className="text-[10px] text-[#F4A261]/75 group-hover:translate-x-0.5 transition-transform">&rarr;</span>
               </Link>
 
@@ -70,7 +70,7 @@ export function Header() {
               <a
                 href="tel:+27810410673"
                 className="inline-flex items-center gap-1.5 text-white/90 hover:text-white font-semibold text-xs transition-colors"
-                title="Call Changing Lives Ministries"
+                title="Call Changing Life Ministries"
               >
                 <Phone className="w-3.5 h-3.5 text-[#F4A261]" />
                 <span>+27 81 041 0673</span>
@@ -103,7 +103,7 @@ export function Header() {
               className="flex items-center justify-center gap-1.5 bg-[#F4A261]/15 hover:bg-[#F4A261]/25 text-[#F4A261] border border-[#F4A261]/30 py-1 px-2.5 rounded-full text-[11px] font-medium text-center transition-colors"
             >
               <Flame className="w-3 h-3 text-[#F4A261] animate-pulse" />
-              <span>In Loving Memory: Miss Jennifer Naude (1996&ndash;2023)</span>
+              <span>In Loving Memory: Miss Jennifer Naude (1969&ndash;2023)</span>
               <span className="text-[10px]">&rarr;</span>
             </Link>
           </div>
@@ -240,7 +240,7 @@ export function Header() {
                     In Loving Memory: Miss Jennifer Naude
                   </div>
                   <div className="text-[11px] text-[#A25010]">
-                    Born June 22, 1996 &ndash; August 16, 2023 &middot; Read Tribute &rarr;
+                    Born June 22, 1969 &ndash; August 16, 2023 &middot; Read Tribute &rarr;
                   </div>
                 </div>
               </div>

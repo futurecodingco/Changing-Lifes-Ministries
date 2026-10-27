@@ -18,7 +18,7 @@ export function LogoEmblem({ className = 'w-10 h-10', inverted = false }: { clas
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={`${className} shrink-0`}
-      aria-label="Changing Lives Ministries Logo Emblem"
+      aria-label="Changing Life Ministries Logo Emblem"
     >
       <defs>
         {/* Sunset Sunburst Gradient */}
@@ -107,7 +107,7 @@ export function Logo({ className = '', variant = 'full', inverted = false }: Log
             inverted ? 'text-white' : 'text-[#2D5A27]'
           }`}
         >
-          Changing Lives Ministries
+          Changing Life Ministries
         </span>
         {variant === 'full' && (
           <span

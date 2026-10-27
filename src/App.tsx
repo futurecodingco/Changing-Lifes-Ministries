@@ -18,9 +18,23 @@ import { DonationsPage } from './pages/DonationsPage.tsx';
 import { TributePage } from './pages/TributePage.tsx';
 import { loadStoredImages } from './lib/storage.ts';
 
+import herHonourRestoredImg from './assets/images/her_honour_restored.jpg';
+import winterWordWorshipImg from './assets/images/winter_word_worship.jpg';
+import welkomWomenOutreachImg from './assets/images/welkom_women_outreach.jpg';
+import limpopoMissionImg from './assets/images/limpopo_mission.jpg';
+import vendaFellowshipImg from './assets/images/venda_fellowship.jpg';
+
+const DEFAULT_IMAGES: Record<string, string> = {
+  'WhatsApp Image 2026-10-12 at 13.55.33.jpeg': herHonourRestoredImg,
+  'WhatsApp Image 2026-10-12 at 13.56.14.jpeg': winterWordWorshipImg,
+  'WhatsApp Image 2026-10-12 at 13.56.59.jpeg': welkomWomenOutreachImg,
+  'WhatsApp Image 2026-10-12 at 14.08.52.jpeg': limpopoMissionImg,
+  'WhatsApp Image 2026-10-12 at 13.59.39.jpeg': vendaFellowshipImg,
+};
+
 function AppContent() {
   const { currentRoute } = useRouter();
-  const [uploadedImages, setUploadedImages] = useState<Record<string, string>>({});
+  const [uploadedImages, setUploadedImages] = useState<Record<string, string>>(DEFAULT_IMAGES);
   const [lightboxImage, setLightboxImage] = useState<{ src: string; caption: string } | null>(null);
 
   // Permanent image loading from durable LocalStorage & IndexedDB
@@ -29,8 +43,7 @@ function AppContent() {
       const saved = localStorage.getItem('clm_uploaded_scenes');
       if (saved) {
         const parsed = JSON.parse(saved);
-        delete parsed['WhatsApp Image 2026-10-12 at 13.55.33.jpeg'];
-        setUploadedImages(parsed);
+        setUploadedImages((prev) => ({ ...prev, ...parsed }));
       }
     } catch {
       // ignore
@@ -39,14 +52,13 @@ function AppContent() {
     loadStoredImages()
       .then((imgs) => {
         if (imgs && Object.keys(imgs).length > 0) {
-          delete imgs['WhatsApp Image 2026-10-12 at 13.55.33.jpeg'];
           setUploadedImages((prev) => ({ ...prev, ...imgs }));
         }
       })
       .catch(() => {});
   }, []);
 
-  const whoWeAreImageSrc = uploadedImages['WhatsApp Image 2026-10-12 at 14.08.52.jpeg'];
+  const whoWeAreImageSrc = uploadedImages['WhatsApp Image 2026-10-12 at 14.08.52.jpeg'] || limpopoMissionImg;
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FFFFFF] text-[#2B2B2B]">

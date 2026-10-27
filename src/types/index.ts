@@ -17,6 +17,7 @@ export interface MinistryEvent {
   attributes: { label: string; value: string }[];
   summary: string;
   extendedStory?: string;
+  defaultImage?: string;
 }
 
 export interface LeaderProfile {

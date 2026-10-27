@@ -39,7 +39,7 @@ const INITIAL_TRIBUTES: CondolenceMessage[] = [
   {
     id: 'tribute-1',
     name: 'Bishop Leona Swartz ("Ma Bishop")',
-    relation: 'Founder & Spiritual Leader, Changing Lives Ministries',
+    relation: 'Founder & Spiritual Leader, Changing Life Ministries',
     message:
       'My dearest sister Jennifer, you were my armor-bearer, my prayer partner, and the quiet steady hand that kept our ministry in godly order. Whenever the storms blew, your gentle voice and unwavering faith reminded us that God is our refuge. Your ledger was spotless, your heart was pure, and your love for the children across our feeding schemes will never be forgotten. Rest softly in the bosom of your Saviour, my beloved friend.',
     date: 'October 14, 2026',
@@ -47,10 +47,10 @@ const INITIAL_TRIBUTES: CondolenceMessage[] = [
   },
   {
     id: 'tribute-2',
-    name: 'Mr. Derrick Swartz',
+    name: 'Mr. Derick Swartz',
     relation: 'Chief Executive Officer (CEO)',
     message:
-      'Behind every soup kitchen, every food parcel distributed, and every provincial outreach stood Miss Jennifer Naude. She worked tirelessly behind the scenes ensuring our compliance with the Department of Social Development and keeping our records flawless. She bore administrative burdens with grace so our teams could minister with confidence. Changing Lives Ministries owes an eternal debt of gratitude to our faithful Company Secretary.',
+      'Behind every soup kitchen, every food parcel distributed, and every provincial outreach stood Miss Jennifer Naude. She worked tirelessly behind the scenes ensuring our compliance with the Department of Social Development and keeping our records flawless. She bore administrative burdens with grace so our teams could minister with confidence. Changing Life Ministries owes an eternal debt of gratitude to our faithful Company Secretary.',
     date: 'October 14, 2026',
     isOfficial: true,
   },
@@ -193,7 +193,7 @@ export function TributePage() {
       {/* Top Memorial Ribbon */}
       <div className="bg-[#1C3318] text-[#F4A261] py-2.5 px-4 text-center text-xs font-semibold tracking-wider uppercase border-b border-[#2D5A27]/40 flex items-center justify-center gap-2">
         <Flame className="w-4 h-4 text-[#F4A261] animate-pulse" />
-        <span>In Loving Memory &middot; Miss Jennifer Naude &middot; Born June 22, 1996 &ndash; August 16, 2023</span>
+        <span>In Loving Memory &middot; Miss Jennifer Naude &middot; Born June 22, 1969 &ndash; August 16, 2023</span>
         <Flame className="w-4 h-4 text-[#F4A261] animate-pulse" />
       </div>
 
@@ -205,7 +205,7 @@ export function TributePage() {
         <div className="max-w-4xl mx-auto relative z-10 space-y-5">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-medium text-[#F4A261]">
             <Sparkles className="w-3.5 h-3.5 text-[#F4A261]" />
-            <span>Born June 22, 1996 &ndash; August 16, 2023 &middot; Forever In God&rsquo;s Peace</span>
+            <span>Born June 22, 1969 &ndash; August 16, 2023 &middot; Forever In God&rsquo;s Peace</span>
           </div>
 
           <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
@@ -214,7 +214,7 @@ export function TributePage() {
           </h1>
 
           <p className="text-sm sm:text-base text-white/80 max-w-2xl mx-auto font-medium tracking-wide">
-            Company Secretary &middot; Pillar of Statutory Compliance &middot; Born June 22, 1996 &ndash; August 16, 2023 &middot; Changing Lives Ministries
+            Company Secretary &middot; Pillar of Statutory Compliance &middot; Born June 22, 1969 &ndash; August 16, 2023 &middot; Changing Life Ministries
           </p>
 
           {/* Scripture Verse Plaque */}
@@ -293,11 +293,11 @@ export function TributePage() {
                   Miss Jennifer Naude
                 </h3>
                 <p className="text-xs uppercase tracking-wider text-[#E8722A] font-bold">
-                  Company Secretary &middot; Changing Lives Ministries
+                  Company Secretary &middot; Changing Life Ministries
                 </p>
                 <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FFF9F0] border border-[#E8722A]/30 text-xs font-semibold text-[#8C3A00] mt-2 shadow-2xs">
                   <Calendar className="w-3.5 h-3.5 text-[#E8722A]" />
-                  <span>Born June 22, 1996 &ndash; August 16, 2023</span>
+                  <span>Born June 22, 1969 &ndash; August 16, 2023</span>
                 </div>
               </div>
 
@@ -340,13 +340,13 @@ export function TributePage() {
                   <strong>Designation:</strong> Company Secretary &amp; Public Officer
                 </p>
                 <p>
-                  <strong>Organization:</strong> Changing Lives Ministries (NPO 222-986 &amp; NPC 2021/582044/08)
+                  <strong>Organization:</strong> Changing Life Ministries (NPO 222-986 &amp; NPC 2021/582044/08)
                 </p>
                 <p>
                   <strong>Service Portfolio:</strong> Department of Social Development regulatory compliance, board minutes, founding non-profit governance, and statutory filings.
                 </p>
                 <p>
-                  <strong>Life &amp; Remembrance:</strong> Born June 22, 1996 &ndash; August 16, 2023
+                  <strong>Life &amp; Remembrance:</strong> Born June 22, 1969 &ndash; August 16, 2023
                 </p>
                 <p>
                   <strong>Memorial Contact:</strong> +27 64 774 5884
@@ -373,7 +373,7 @@ export function TributePage() {
               </p>
 
               <p className="text-sm text-[#2B2B2B]/90 leading-relaxed">
-                As Company Secretary of Changing Lives Ministries, Jennifer carried the vital responsibility of maintaining full regulatory statutory compliance, non-profit records, board minutes, and institutional reporting with the <strong>Department of Social Development (DSD)</strong> under South African non-profit legislation. She understood that doing God&rsquo;s work required doing it with absolute transparency, honesty, and legal excellence before God and the nation.
+                As Company Secretary of Changing Life Ministries, Jennifer carried the vital responsibility of maintaining full regulatory statutory compliance, non-profit records, board minutes, and institutional reporting with the <strong>Department of Social Development (DSD)</strong> under South African non-profit legislation. She understood that doing God&rsquo;s work required doing it with absolute transparency, honesty, and legal excellence before God and the nation.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-2">
@@ -399,7 +399,7 @@ export function TributePage() {
               </div>
 
               <p className="text-sm text-[#2B2B2B]/90 leading-relaxed">
-                Her departure leaves an aching void in the corridors of Changing Lives Ministries and in the hearts of everyone who had the privilege of knowing her warm laughter, her gentle wisdom, and her quiet strength. We bid her farewell not as those without hope, but as those who know she has entered into the glorious rest prepared for the faithful.
+                Her departure leaves an aching void in the corridors of Changing Life Ministries and in the hearts of everyone who had the privilege of knowing her warm laughter, her gentle wisdom, and her quiet strength. We bid her farewell not as those without hope, but as those who know she has entered into the glorious rest prepared for the faithful.
               </p>
             </div>
 
@@ -591,7 +591,7 @@ export function TributePage() {
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-[#F4A261]" />
             <span>
-              Changing Lives Ministries will forever honor the memory and statutory leadership of Miss Jennifer Naude.
+              Changing Life Ministries will forever honor the memory and statutory leadership of Miss Jennifer Naude.
             </span>
           </div>
 

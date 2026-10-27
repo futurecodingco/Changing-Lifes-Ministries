@@ -205,12 +205,12 @@ export function DonationsPage() {
               <div className="bg-white border border-[#2D5A27]/20 rounded-xl p-4 flex items-center justify-between">
                 <div>
                   <span className="text-[11px] uppercase font-bold text-[#2B2B2B]/60 block">Account Holder / Name</span>
-                  <strong className="text-base text-[#1F3E1B]">Changing Lives Ministries</strong>
+                  <strong className="text-base text-[#1F3E1B]">Changing Life Ministries</strong>
                   <span className="text-xs text-[#2B2B2B]/70 block">Registered NPO &amp; Associated NPC</span>
                 </div>
                 <button
                   type="button"
-                  onClick={() => handleCopy('Changing Lives Ministries', 'account-name')}
+                  onClick={() => handleCopy('Changing Life Ministries', 'account-name')}
                   className="p-2 text-[#2D5A27] hover:text-[#E8722A] hover:bg-[#FFF9F0] rounded-lg transition-colors cursor-pointer"
                   title="Copy account name"
                 >
@@ -300,7 +300,7 @@ export function DonationsPage() {
                 type="button"
                 onClick={() =>
                   handleCopy(
-                    `BANKING DETAILS FOR CHANGING LIVES MINISTRIES:\nBank: Absa Bank\nAccount Name: Changing Lives Ministries\nAccount Number: 9348796699\nBranch: Lenasia Branch\nUniversal Branch Code: 632005\nAccount Type: Cheque / Current\nSWIFT: ABSAZAJJ\nNPO Registration: 222-986\nNPC: 2021/582044/08\nSend POP to: Leonaswartz510@gmail.com / WhatsApp: +27 81 041 0673`,
+                    `BANKING DETAILS FOR CHANGING LIFE MINISTRIES:\nBank: Absa Bank\nAccount Name: Changing Life Ministries\nAccount Number: 9348796699\nBranch: Lenasia Branch\nUniversal Branch Code: 632005\nAccount Type: Cheque / Current\nSWIFT: ABSAZAJJ\nNPO Registration: 222-986\nNPC: 2021/582044/08\nSend POP to: Leonaswartz510@gmail.com / WhatsApp: +27 81 041 0673`,
                     'full-snippet'
                   )
                 }
@@ -631,7 +631,7 @@ export function DonationsPage() {
             <span>Audited Transparency &amp; Non-Profit Compliance</span>
           </div>
           <h3 className="text-xl font-serif font-bold text-[#1F3E1B]">
-            Changing Lives Ministries (NPO 222-986)
+            Changing Life Ministries (NPO 222-986)
           </h3>
           <p className="text-xs sm:text-sm text-[#2B2B2B]/75 max-w-2xl mx-auto leading-relaxed">
             Registered with the Department of Social Development under the Nonprofit Organisations Act, 1997. Associated Non-Profit Company Registration 2021/582044/08. South African Revenue Service Tax Reference 2223342151. Every donation directly supports community beneficiaries.

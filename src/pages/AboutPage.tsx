@@ -25,7 +25,7 @@ export function AboutPage({ whoWeAreImageSrc, onOpenLightbox }: AboutPageProps) 
             <span>Faith in Action Since 2016</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-serif font-bold mb-4">
-            About Changing Lives Ministries
+            About Changing Life Ministries
           </h1>
           <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
             Reaching hearts, restoring dignity, and transforming South African communities through active, compassionate service.
@@ -65,7 +65,7 @@ export function AboutPage({ whoWeAreImageSrc, onOpenLightbox }: AboutPageProps) 
             />
 
             <p className="text-base text-[#2B2B2B] leading-relaxed">
-              Changing Lives Ministries was founded under the spiritual leadership and steadfast dedication of <strong>Bishop Leona Swartz (&ldquo;Ma Bishop&rdquo;)</strong>. Recognizing the devastating socioeconomic hardships affecting families and children across impoverished townships and rural settlements, Ma Bishop established an active, mobile outreach dedicated to meeting immediate physical needs while renewing spiritual hope.
+              Changing Life Ministries was founded under the spiritual leadership and steadfast dedication of <strong>Bishop Leona Swartz (&ldquo;Ma Bishop&rdquo;)</strong>. Recognizing the devastating socioeconomic hardships affecting families and children across impoverished townships and rural settlements, Ma Bishop established an active, mobile outreach dedicated to meeting immediate physical needs while renewing spiritual hope.
             </p>
 
             <p className="text-base text-[#2B2B2B] leading-relaxed">
@@ -77,7 +77,7 @@ export function AboutPage({ whoWeAreImageSrc, onOpenLightbox }: AboutPageProps) 
                 Bishop Leona Swartz (&ldquo;Ma Bishop&rdquo;)
               </h4>
               <p className="text-xs sm:text-sm text-[#2B2B2B]/85 leading-relaxed">
-                Founder and spiritual mother of Changing Lives Ministries, leading community missions and mentoring families with unyielding faith.
+                Founder and spiritual mother of Changing Life Ministries, leading community missions and mentoring families with unyielding faith.
               </p>
             </div>
           </div>
@@ -149,7 +149,7 @@ export function AboutPage({ whoWeAreImageSrc, onOpenLightbox }: AboutPageProps) 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
             <div className="bg-[#FFF9F0]/60 p-4 rounded-xl border border-[#2D5A27]/10">
               <span className="text-xs uppercase font-bold text-[#E8722A] block mb-1">Organization Name</span>
-              <strong className="text-base text-[#2B2B2B] block">Changing Lives Ministries</strong>
+              <strong className="text-base text-[#2B2B2B] block">Changing Life Ministries</strong>
             </div>
 
             <div className="bg-[#FFF9F0]/60 p-4 rounded-xl border border-[#2D5A27]/10">
@@ -182,7 +182,7 @@ export function AboutPage({ whoWeAreImageSrc, onOpenLightbox }: AboutPageProps) 
 
           <div className="mt-8 pt-6 border-t border-[#2D5A27]/15 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-[#2B2B2B]/75">
-              Changing Lives Ministries complies with all statutory non-profit governance regulations in the Republic of South Africa.
+              Changing Life Ministries complies with all statutory non-profit governance regulations in the Republic of South Africa.
             </p>
             <button
               type="button"

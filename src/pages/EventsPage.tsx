@@ -8,6 +8,12 @@ import { LogoEmblem } from '../components/Logo.tsx';
 import { MinistryEvent } from '../types/index.ts';
 import { Calendar, MapPin, ArrowLeft, ArrowRight, ZoomIn } from 'lucide-react';
 
+import herHonourRestoredImg from '../assets/images/her_honour_restored.jpg';
+import winterWordWorshipImg from '../assets/images/winter_word_worship.jpg';
+import welkomWomenOutreachImg from '../assets/images/welkom_women_outreach.jpg';
+import limpopoMissionImg from '../assets/images/limpopo_mission.jpg';
+import vendaFellowshipImg from '../assets/images/venda_fellowship.jpg';
+
 interface EventsPageProps {
   uploadedImages: Record<string, string>;
   onOpenLightbox: (src: string, caption: string) => void;
@@ -22,8 +28,29 @@ export function EventsPage({
   const ministryEvents: MinistryEvent[] = [
     {
       id: 1,
+      storageKey: 'WhatsApp Image 2026-10-12 at 13.55.33.jpeg',
+      defaultImage: herHonourRestoredImg,
+      title: 'Her Honour Is Restored (Haar Eer Is Herstel)',
+      badge: 'Women Empowerment Convocation',
+      shortTitle: 'Her Honour Is Restored',
+      date: '20 September 2025 · 10:00 AM',
+      location: '101 9th Avenue, Mid-Ennerdale',
+      themeVerse: 'Isaiah 43:19 (NIV)',
+      attributes: [
+        { label: 'Presiding Host', value: 'Bishop Leona Swartz ("Ma Bishop")' },
+        { label: 'Guest Speakers', value: 'Prophetess Claudia Abrahams · Prophetess Elect Monica Shreuder · Pastor Belinda Fortuin' },
+        { label: 'Venue Location', value: '101 9th Avenue, Mid-Ennerdale' },
+        { label: 'Event Date & Time', value: '20 September 2025 at 10:00 AM' },
+        { label: 'RSVP / Catering', value: 'Leona: 081 041 0673 · Naurdine: 073 011 5154' },
+      ],
+      summary:
+        'A milestone spiritual convocation presenting "Her Honour Is Restored (Haar Eer Is Herstel)", bringing women together for uplifting worship, restoration, prophetic ministry, and fellowship in Mid-Ennerdale.',
+    },
+    {
+      id: 2,
       storageKey: 'WhatsApp Image 2026-10-12 at 13.56.14.jpeg',
-      title: 'Winter Word Worship',
+      defaultImage: winterWordWorshipImg,
+      title: 'Winter Word & Worship',
       badge: 'National Worship Gathering',
       shortTitle: 'Winter Word Worship',
       date: '4 June',
@@ -41,8 +68,9 @@ export function EventsPage({
         'A transformative regional gathering of praise, prophetic prayer, and worship, bringing together leaders and congregants from across Gauteng and neighbouring regions.',
     },
     {
-      id: 2,
+      id: 3,
       storageKey: 'WhatsApp Image 2026-10-12 at 13.56.59.jpeg',
+      defaultImage: welkomWomenOutreachImg,
       title: 'Community Celebration & Outreach',
       badge: 'Women Empowerment & Fellowship',
       shortTitle: 'Welkom Outreach',
@@ -52,14 +80,15 @@ export function EventsPage({
         { label: 'Date', value: '20 August 2023' },
         { label: 'Location', value: 'Welkom, Free State' },
         { label: 'Focus Theme', value: 'Women Empowerment, Fellowship & Community Celebration' },
-        { label: 'Host Ministry', value: 'Changing Lives Ministries Outreach Team' },
+        { label: 'Host Ministry', value: 'Changing Life Ministries Outreach Team' },
       ],
       summary:
         'A milestone community celebration and women empowerment gathering in Welkom, bringing together women and families for fellowship, pastoral care, and community upliftment.',
     },
     {
-      id: 3,
+      id: 4,
       storageKey: 'WhatsApp Image 2026-10-12 at 14.08.52.jpeg',
+      defaultImage: limpopoMissionImg,
       title: 'Limpopo Mission Visitation',
       badge: 'Regional Field Mission',
       shortTitle: 'Limpopo Mission',
@@ -75,8 +104,9 @@ export function EventsPage({
         'A historic regional apostolic visitation led by our founder Bishop Leona Swartz, providing critical humanitarian assistance and spiritual fellowship to rural communities.',
     },
     {
-      id: 4,
+      id: 5,
       storageKey: 'WhatsApp Image 2026-10-12 at 13.59.39.jpeg',
+      defaultImage: vendaFellowshipImg,
       title: 'Venda Outreach & Fellowship',
       badge: 'Community Fellowship',
       shortTitle: 'Venda Fellowship',
@@ -94,7 +124,7 @@ export function EventsPage({
   ];
 
   const currentEvent = ministryEvents[activeEventIndex] || ministryEvents[0];
-  const activeImageSrc = uploadedImages[currentEvent.storageKey];
+  const activeImageSrc = uploadedImages[currentEvent.storageKey] || currentEvent.defaultImage;
 
   return (
     <div className="bg-[#FFFFFF]">
@@ -108,7 +138,7 @@ export function EventsPage({
             Events &amp; Outreaches
           </h1>
           <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Reliving transformative gatherings, worship conferences, and field visitations led by Changing Lives Ministries across South Africa.
+            Reliving transformative gatherings, worship conferences, and field visitations led by Changing Life Ministries across South Africa.
           </p>
         </div>
       </section>
@@ -175,7 +205,7 @@ export function EventsPage({
                       <LogoEmblem className="w-9 h-9" />
                     </div>
                     <span className="text-[10px] uppercase font-bold tracking-widest text-[#F4A261]">
-                      Changing Lives Ministries
+                      Changing Life Ministries
                     </span>
                   </div>
 

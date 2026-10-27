@@ -81,7 +81,7 @@ export function ContactPage() {
                 Bishop Leona Swartz (&ldquo;Ma Bishop&rdquo;)
               </h3>
               <p className="text-xs text-[#2B2B2B]/75 mb-6">
-                Founder &amp; Spiritual Leader &middot; Changing Lives Ministries
+                Founder &amp; Spiritual Leader &middot; Changing Life Ministries
               </p>
 
               <div className="space-y-4">
@@ -154,15 +154,22 @@ export function ContactPage() {
               <h4 className="font-serif font-bold text-lg text-[#2D5A27]">
                 Executive Administration
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                 <div className="bg-[#FFF9F0] p-3.5 rounded-xl border border-[#2D5A27]/10">
                   <span className="text-[#2B2B2B]/60 uppercase font-semibold block text-[10px]">Chief Executive Officer</span>
-                  <strong className="text-sm text-[#2B2B2B] block">Mr. Derrick Swartz</strong>
+                  <strong className="text-sm text-[#2B2B2B] block">Mr. Derick Swartz</strong>
                   <a href="tel:+27823200492" className="text-[#2D5A27] font-semibold hover:underline mt-1 inline-block">
                     +27 82 320 0492
                   </a>
                 </div>
-                <div className="bg-[#FFF9F0] p-3.5 rounded-xl border-2 border-[#E8722A]/30 relative overflow-hidden">
+                <div className="bg-[#FFF9F0] p-3.5 rounded-xl border border-[#2D5A27]/10">
+                  <span className="text-[#2B2B2B]/60 uppercase font-semibold block text-[10px]">Executive Member</span>
+                  <strong className="text-sm text-[#2B2B2B] block">Member Phelan</strong>
+                  <a href="tel:+27631362390" className="text-[#2D5A27] font-semibold hover:underline mt-1 inline-block">
+                    +27 63 136 2390
+                  </a>
+                </div>
+                <div className="bg-[#FFF9F0] p-3.5 rounded-xl border-2 border-[#E8722A]/30 relative overflow-hidden sm:col-span-2 lg:col-span-1">
                   <div className="flex items-center justify-between">
                     <span className="text-[#E8722A] uppercase font-bold block text-[10px] flex items-center gap-1">
                       <Flame className="w-3 h-3 text-[#E8722A]" />
@@ -171,7 +178,7 @@ export function ContactPage() {
                   </div>
                   <strong className="text-sm text-[#2B2B2B] block mt-0.5">Miss Jennifer Naude</strong>
                   <span className="text-[11px] text-[#8C3A00] font-medium block">
-                    Born June 22, 1996 &ndash; August 16, 2023
+                    Born June 22, 1969 &ndash; August 16, 2023
                   </span>
                   <div className="flex items-center justify-between mt-1 text-xs">
                     <a href="tel:+27647745884" className="text-[#2D5A27] font-semibold hover:underline">
@@ -251,7 +258,7 @@ export function ContactPage() {
                     Message Sent Successfully
                   </h4>
                   <p className="text-sm text-[#2B2B2B] leading-relaxed">
-                    Thank you for reaching out to Changing Lives Ministries. Your message has been routed to our executive office.
+                    Thank you for reaching out to Changing Life Ministries. Your message has been routed to our executive office.
                   </p>
                   <button
                     type="button"
