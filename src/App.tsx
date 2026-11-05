@@ -18,6 +18,7 @@ import { DonationsPage } from './pages/DonationsPage.tsx';
 import { TributePage } from './pages/TributePage.tsx';
 import { loadStoredImages } from './lib/storage.ts';
 
+import healingIdentityWoundsImg from './assets/images/healing_identity_wounds.jpg';
 import herHonourRestoredImg from './assets/images/her_honour_restored.jpg';
 import winterWordWorshipImg from './assets/images/winter_word_worship.jpg';
 import welkomWomenOutreachImg from './assets/images/welkom_women_outreach.jpg';
@@ -25,6 +26,9 @@ import limpopoMissionImg from './assets/images/limpopo_mission.jpg';
 import vendaFellowshipImg from './assets/images/venda_fellowship.jpg';
 
 const DEFAULT_IMAGES: Record<string, string> = {
+  'New_poster_58986366': healingIdentityWoundsImg,
+  'healing_identity_wounds.jpg': healingIdentityWoundsImg,
+  '/assets/aistudio/New_poster_58986366': healingIdentityWoundsImg,
   'WhatsApp Image 2026-10-12 at 13.55.33.jpeg': herHonourRestoredImg,
   'WhatsApp Image 2026-10-12 at 13.56.14.jpeg': winterWordWorshipImg,
   'WhatsApp Image 2026-10-12 at 13.56.59.jpeg': welkomWomenOutreachImg,

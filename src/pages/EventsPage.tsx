@@ -6,8 +6,9 @@
 import React, { useState } from 'react';
 import { LogoEmblem } from '../components/Logo.tsx';
 import { MinistryEvent } from '../types/index.ts';
-import { Calendar, MapPin, ArrowLeft, ArrowRight, ZoomIn } from 'lucide-react';
+import { Calendar, MapPin, ArrowLeft, ArrowRight, ZoomIn, BookOpen, Phone, Sparkles } from 'lucide-react';
 
+import healingIdentityWoundsImg from '../assets/images/healing_identity_wounds.jpg';
 import herHonourRestoredImg from '../assets/images/her_honour_restored.jpg';
 import winterWordWorshipImg from '../assets/images/winter_word_worship.jpg';
 import welkomWomenOutreachImg from '../assets/images/welkom_women_outreach.jpg';
@@ -28,6 +29,29 @@ export function EventsPage({
   const ministryEvents: MinistryEvent[] = [
     {
       id: 1,
+      storageKey: 'New_poster_58986366',
+      defaultImage: healingIdentityWoundsImg,
+      title: 'Healing Identity Wounds',
+      badge: "Upcoming Women's Event · Free Entrance",
+      shortTitle: 'Healing Identity Wounds',
+      date: '07 November 2026 · 10H30',
+      location: '5579 Cinnibar Street, Ext 8 Ennerdale',
+      themeVerse: 'Jeremiah 30:17 — "You will be healed and restored."',
+      attributes: [
+        { label: 'Event Focus', value: "Women's Event: Worship · Encouragement · Healing · Purpose" },
+        { label: 'Presiding Host', value: 'Bishop Leona Swartz ("Ma Bishop")' },
+        { label: 'Guest Speaker', value: 'Prophetess Claudia' },
+        { label: 'Date & Time', value: 'Saturday, 07 November 2026 at 10h30' },
+        { label: 'Venue Location', value: '5579 Cinnibar Street, Ext 8 Ennerdale' },
+        { label: 'Admission', value: 'Free Entrance (All Women Welcome)' },
+        { label: 'RSVP / Contact', value: 'Bishop Leona: 081 041 0673' },
+        { label: 'Heart Motto', value: 'Come and be healed · You are not alone' },
+      ],
+      summary:
+        'Changing Life Ministries warmly invites women across the community to "Healing Identity Wounds" — a sacred convocation of worship, encouragement, emotional and spiritual healing, and divine purpose. Presided over by Bishop Leona with anointed guest speaker Prophetess Claudia, this free gathering offers restoration under the promise of Jeremiah 30:17: "You will be healed and restored. Come and be healed · You are not alone."',
+    },
+    {
+      id: 2,
       storageKey: 'WhatsApp Image 2026-10-12 at 13.55.33.jpeg',
       defaultImage: herHonourRestoredImg,
       title: 'Her Honour Is Restored (Haar Eer Is Herstel)',
@@ -47,7 +71,7 @@ export function EventsPage({
         'A milestone spiritual convocation presenting "Her Honour Is Restored (Haar Eer Is Herstel)", bringing women together for uplifting worship, restoration, prophetic ministry, and fellowship in Mid-Ennerdale.',
     },
     {
-      id: 2,
+      id: 3,
       storageKey: 'WhatsApp Image 2026-10-12 at 13.56.14.jpeg',
       defaultImage: winterWordWorshipImg,
       title: 'Winter Word & Worship',
@@ -68,7 +92,7 @@ export function EventsPage({
         'A transformative regional gathering of praise, prophetic prayer, and worship, bringing together leaders and congregants from across Gauteng and neighbouring regions.',
     },
     {
-      id: 3,
+      id: 4,
       storageKey: 'WhatsApp Image 2026-10-12 at 13.56.59.jpeg',
       defaultImage: welkomWomenOutreachImg,
       title: 'Community Celebration & Outreach',
@@ -86,7 +110,7 @@ export function EventsPage({
         'A milestone community celebration and women empowerment gathering in Welkom, bringing together women and families for fellowship, pastoral care, and community upliftment.',
     },
     {
-      id: 4,
+      id: 5,
       storageKey: 'WhatsApp Image 2026-10-12 at 14.08.52.jpeg',
       defaultImage: limpopoMissionImg,
       title: 'Limpopo Mission Visitation',
@@ -104,7 +128,7 @@ export function EventsPage({
         'A historic regional apostolic visitation led by our founder Bishop Leona Swartz, providing critical humanitarian assistance and spiritual fellowship to rural communities.',
     },
     {
-      id: 5,
+      id: 6,
       storageKey: 'WhatsApp Image 2026-10-12 at 13.59.39.jpeg',
       defaultImage: vendaFellowshipImg,
       title: 'Venda Outreach & Fellowship',
@@ -255,6 +279,19 @@ export function EventsPage({
                 </div>
               </div>
 
+              {/* Theme Verse Mandate Banner */}
+              {currentEvent.themeVerse && (
+                <div className="bg-white border-l-4 border-[#E8722A] p-4 rounded-r-2xl shadow-xs space-y-1">
+                  <div className="text-[11px] uppercase tracking-wider font-bold text-[#E8722A] flex items-center gap-1.5">
+                    <BookOpen className="w-3.5 h-3.5 text-[#E8722A]" />
+                    <span>Biblical Mandate &amp; Scripture Foundation</span>
+                  </div>
+                  <p className="font-serif italic text-sm text-[#2D5A27] font-medium leading-relaxed">
+                    &ldquo;{currentEvent.themeVerse}&rdquo;
+                  </p>
+                </div>
+              )}
+
               <p className="text-sm sm:text-base text-[#2B2B2B] leading-relaxed">
                 {currentEvent.summary}
               </p>
@@ -274,6 +311,32 @@ export function EventsPage({
                     </span>
                   </div>
                 ))}
+              </div>
+
+              {/* Event Actions & Direct RSVP */}
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                {activeImageSrc && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenLightbox(activeImageSrc, currentEvent.title)}
+                    className="px-5 py-2.5 bg-[#2D5A27] hover:bg-[#1E3D1A] active:scale-[0.98] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-xs flex items-center gap-2 cursor-pointer"
+                  >
+                    <ZoomIn className="w-4 h-4" />
+                    <span>View Event Poster HD</span>
+                  </button>
+                )}
+
+                <a
+                  href={`https://wa.me/27810410673?text=${encodeURIComponent(
+                    `Hi Bishop Leona, I would like to RSVP / inquire about the "${currentEvent.title}" event.`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 bg-[#E8722A] hover:bg-[#D4601A] active:scale-[0.98] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-xs flex items-center gap-2 cursor-pointer"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>RSVP / WhatsApp Inquiries</span>
+                </a>
               </div>
 
               {/* Event Navigation Controls */}

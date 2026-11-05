@@ -23,7 +23,10 @@ import {
   CreditCard,
   BookOpen,
   Award,
+  ZoomIn,
+  Phone,
 } from 'lucide-react';
+import healingIdentityWoundsImg from '../assets/images/healing_identity_wounds.jpg';
 
 interface HomePageProps {
   whoWeAreImageSrc?: string;
@@ -393,6 +396,111 @@ export function HomePage({ whoWeAreImageSrc, onOpenLightbox }: HomePageProps) {
               <span className="text-xs text-[#2B2B2B]/70 text-left lg:text-right">
                 Official NPO 222-986 &middot; NPC 2021/582044/08
               </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* UPCOMING FLAGSHIP EVENT SPOTLIGHT */}
+      <section className="bg-[#FFF9F0] py-16 sm:py-20 px-6 sm:px-8 border-t border-[#2D5A27]/15">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-white border-2 border-[#2D5A27]/20 rounded-3xl p-6 sm:p-10 shadow-xl overflow-hidden relative">
+            <div className="absolute top-0 right-0 bg-[#E8722A] text-white text-[11px] font-bold uppercase tracking-wider px-5 py-1.5 rounded-bl-2xl shadow-sm">
+              Upcoming Flagship Convocation
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-5 lg:pt-0">
+              {/* Event Poster Thumbnail */}
+              <div className="lg:col-span-5 flex justify-center">
+                <div
+                  onClick={() =>
+                    onOpenLightbox(
+                      healingIdentityWoundsImg,
+                      "Healing Identity Wounds — Women's Event (07 November 2026)"
+                    )
+                  }
+                  title="Click to view full event poster"
+                  className="group relative cursor-zoom-in rounded-2xl overflow-hidden shadow-md border-2 border-[#2D5A27]/20 max-w-[280px] sm:max-w-[320px]"
+                >
+                  <img
+                    src={healingIdentityWoundsImg}
+                    alt="Healing Identity Wounds Women's Event Poster"
+                    className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-xs font-semibold transition-opacity">
+                    <span className="bg-black/70 px-4 py-2 rounded-full backdrop-blur-xs flex items-center gap-1.5 shadow-md">
+                      <ZoomIn className="w-4 h-4" />
+                      <span>View Full Poster</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Event Details */}
+              <div className="lg:col-span-7 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2D5A27]/10 text-[#2D5A27] text-xs font-bold uppercase tracking-wider">
+                  <Sparkles className="w-3.5 h-3.5 text-[#E8722A]" />
+                  <span>Changing Life Ministries &middot; Women&rsquo;s Event</span>
+                </div>
+
+                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-[#2D5A27] leading-tight">
+                  Healing <span className="text-[#E8722A] italic">Identity Wounds</span>
+                </h3>
+
+                <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#E8722A]">
+                  Worship &middot; Encouragement &middot; Healing &middot; Purpose
+                </p>
+
+                <div className="bg-[#FFF9F0] border-l-4 border-[#2D5A27] p-3.5 rounded-r-xl">
+                  <p className="font-serif italic text-xs sm:text-sm text-[#1F3E1B]">
+                    &ldquo;You will be healed and restored.&rdquo; &mdash; Jeremiah 30:17
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm pt-1">
+                  <div className="flex items-center gap-2 text-[#2B2B2B]">
+                    <Calendar className="w-4 h-4 text-[#E8722A] shrink-0" />
+                    <span><strong>Date:</strong> 07 November 2026 at 10h30</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-[#2B2B2B]">
+                    <MapPin className="w-4 h-4 text-[#2D5A27] shrink-0" />
+                    <span><strong>Venue:</strong> 5579 Cinnibar St, Ext 8 Ennerdale</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-[#2B2B2B]">
+                    <Users className="w-4 h-4 text-[#2D5A27] shrink-0" />
+                    <span><strong>Host:</strong> Bishop Leona &middot; <strong>Speaker:</strong> Prophetess Claudia</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-[#2B2B2B]">
+                    <Award className="w-4 h-4 text-[#E8722A] shrink-0" />
+                    <span className="text-emerald-700 font-bold uppercase tracking-wider">Free Entrance &middot; All Women Welcome</span>
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-sm text-[#2B2B2B]/85 italic">
+                  &ldquo;Come and be healed &middot; You are not alone&rdquo;
+                </p>
+
+                <div className="flex flex-wrap items-center gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => navigate('/events')}
+                    className="px-6 py-3 bg-[#2D5A27] hover:bg-[#1F3E1B] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-[0.98]"
+                  >
+                    <span>View Event &amp; Details</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  <a
+                    href="https://wa.me/27810410673?text=Hi%20Bishop%20Leona,%20I%20would%20like%20to%20RSVP%20for%20the%20Healing%20Identity%20Wounds%20Women's%20Event%20on%2007%20November%202026."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3 bg-[#E8722A] hover:bg-[#D4601A] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-[0.98]"
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>RSVP to Bishop Leona (081 041 0673)</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

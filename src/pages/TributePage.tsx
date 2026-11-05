@@ -83,9 +83,10 @@ export function TributePage() {
   const [photoSrc, setPhotoSrc] = useState<string>(jenniferCanvaPortrait);
   const [showPhotoModal, setShowPhotoModal] = useState<boolean>(false);
 
-  // Candles lit state
+  // Candles lit state (starts at 0, advances every 24h & every time someone votes)
   const [candleCount, setCandleCount] = useState<number>(0);
-  const [hasLitCandle, setHasLitCandle] = useState<boolean>(false);
+  const [userVotes, setUserVotes] = useState<number>(0);
+  const [justVoted, setJustVoted] = useState<boolean>(false);
   const [candleFlicker, setCandleFlicker] = useState<boolean>(true);
 
   // Guestbook & Condolence messages
@@ -96,29 +97,57 @@ export function TributePage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
 
-  // Load persisted photo & custom tributes from storage
+  // Sync candle counter with 24-hour cycle and load persisted tributes
   useEffect(() => {
+    const checkAndSyncCandles = () => {
+      try {
+        const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+        const now = Date.now();
+
+        // 1. Check stored count (default to 0, clean up legacy 142 if present)
+        const storedCandles = localStorage.getItem('clm_jennifer_candles');
+        let currentCount = 0;
+        if (storedCandles && storedCandles !== '142') {
+          const parsed = parseInt(storedCandles, 10);
+          currentCount = isNaN(parsed) ? 0 : parsed;
+        } else {
+          localStorage.setItem('clm_jennifer_candles', '0');
+        }
+
+        // 2. Check 24-hour progression cycle
+        const stored24hTimestamp = localStorage.getItem('clm_candles_last_24h');
+        let last24h = stored24hTimestamp ? parseInt(stored24hTimestamp, 10) : NaN;
+
+        if (isNaN(last24h)) {
+          // Initialize first 24h baseline anchor
+          localStorage.setItem('clm_candles_last_24h', now.toString());
+        } else {
+          const elapsed = now - last24h;
+          if (elapsed >= ONE_DAY_MS) {
+            const daysPassed = Math.floor(elapsed / ONE_DAY_MS);
+            currentCount += daysPassed;
+            last24h = last24h + daysPassed * ONE_DAY_MS;
+            localStorage.setItem('clm_candles_last_24h', last24h.toString());
+            localStorage.setItem('clm_jennifer_candles', currentCount.toString());
+          }
+        }
+
+        setCandleCount(currentCount);
+
+        // 3. User's recorded tribute votes
+        const storedUserVotes = localStorage.getItem('clm_user_candles_lit');
+        if (storedUserVotes) {
+          const parsedVotes = parseInt(storedUserVotes, 10);
+          setUserVotes(isNaN(parsedVotes) ? 0 : parsedVotes);
+        }
+      } catch {
+        // storage unavailable
+      }
+    };
+
     try {
       localStorage.removeItem('clm_jennifer_photo');
       setPhotoSrc(jenniferCanvaPortrait);
-
-      const storedCandles = localStorage.getItem('clm_jennifer_candles');
-      if (storedCandles && storedCandles !== '142') {
-        const parsed = parseInt(storedCandles, 10);
-        setCandleCount(isNaN(parsed) ? 0 : parsed);
-      } else {
-        setCandleCount(0);
-        try {
-          localStorage.setItem('clm_jennifer_candles', '0');
-        } catch {
-          // ignore
-        }
-      }
-
-      const storedUserCandle = localStorage.getItem('clm_jennifer_user_lit');
-      if (storedUserCandle === 'true') {
-        setHasLitCandle(true);
-      }
 
       const storedTributes = localStorage.getItem('clm_jennifer_tributes');
       if (storedTributes) {
@@ -130,18 +159,34 @@ export function TributePage() {
     } catch {
       // storage unavailable
     }
+
+    checkAndSyncCandles();
+
+    // Check periodically so counter advances automatically every 24 hours while tab is open
+    const intervalId = setInterval(checkAndSyncCandles, 60000);
+    return () => clearInterval(intervalId);
   }, []);
 
   const handleLightCandle = () => {
-    if (hasLitCandle) return;
-    const newCount = candleCount + 1;
-    setCandleCount(newCount);
-    setHasLitCandle(true);
     try {
-      localStorage.setItem('clm_jennifer_candles', newCount.toString());
+      const stored = localStorage.getItem('clm_jennifer_candles');
+      const base = stored && stored !== '142' ? parseInt(stored, 10) || 0 : 0;
+      const nextCount = base + 1;
+      const nextVotes = userVotes + 1;
+
+      setCandleCount(nextCount);
+      setUserVotes(nextVotes);
+      setJustVoted(true);
+      setTimeout(() => setJustVoted(false), 3500);
+
+      localStorage.setItem('clm_jennifer_candles', nextCount.toString());
+      localStorage.setItem('clm_user_candles_lit', nextVotes.toString());
       localStorage.setItem('clm_jennifer_user_lit', 'true');
     } catch {
-      // ignore
+      setCandleCount((prev) => prev + 1);
+      setUserVotes((prev) => prev + 1);
+      setJustVoted(true);
+      setTimeout(() => setJustVoted(false), 3500);
     }
   };
 
@@ -236,15 +281,12 @@ export function TributePage() {
             <button
               type="button"
               onClick={handleLightCandle}
-              disabled={hasLitCandle}
-              className={`px-5 py-2.5 rounded-xl font-semibold text-xs tracking-wider uppercase transition-all shadow-md flex items-center gap-2 cursor-pointer ${
-                hasLitCandle
-                  ? 'bg-[#E8722A] text-white cursor-default'
-                  : 'bg-white text-[#2D5A27] hover:bg-[#FFF9F0]'
-              }`}
+              className="px-5 py-2.5 rounded-xl font-semibold text-xs tracking-wider uppercase transition-all shadow-md flex items-center gap-2 cursor-pointer bg-white text-[#2D5A27] hover:bg-[#FFF9F0] active:scale-[0.98]"
             >
-              <Flame className={`w-4 h-4 ${hasLitCandle ? 'text-white' : 'text-[#E8722A]'}`} />
-              <span>{hasLitCandle ? 'Your Candle is Lit' : 'Light a Memorial Candle'}</span>
+              <Flame className="w-4 h-4 text-[#E8722A] animate-pulse" />
+              <span>
+                {userVotes === 0 ? 'Light a Memorial Candle (+1)' : `Light Another Candle (+1) · (${userVotes} Lit)`}
+              </span>
             </button>
 
             <button
@@ -315,31 +357,48 @@ export function TributePage() {
               </div>
 
               {/* Live Virtual Candle Display */}
-              <div className="mt-6 bg-[#FFF9F0] border border-[#2D5A27]/15 rounded-2xl p-5 text-center">
+              <div className="mt-6 bg-[#FFF9F0] border border-[#2D5A27]/15 rounded-2xl p-5 text-center relative overflow-hidden shadow-xs">
+                {justVoted && (
+                  <div className="mb-3 px-3 py-1.5 rounded-lg bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-semibold flex items-center justify-center gap-1.5 animate-fadeIn">
+                    <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Memorial candle lit! Your tribute vote has been added.</span>
+                  </div>
+                )}
+
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <span className="relative flex h-6 w-6 items-center justify-center">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E8722A] opacity-35" />
-                    <Flame className="w-6 h-6 text-[#E8722A]" />
+                  <span className="relative flex h-7 w-7 items-center justify-center">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E8722A] opacity-40" />
+                    <Flame className="w-7 h-7 text-[#E8722A] drop-shadow-xs" />
                   </span>
-                  <span className="font-serif font-bold text-2xl text-[#2D5A27]">
+                  <span className="font-serif font-bold text-3xl text-[#2D5A27]">
                     {candleCount}
                   </span>
                 </div>
-                <span className="text-xs font-semibold text-[#2B2B2B]/75 block uppercase tracking-wider">
+                <span className="text-xs font-semibold text-[#2B2B2B]/85 block uppercase tracking-wider">
                   Memorial Candles Lit in Her Honor
                 </span>
+
+                <div className="mt-2.5 text-[11px] text-[#2B2B2B]/70 flex flex-col items-center gap-1">
+                  <span className="inline-flex items-center gap-1.5 font-medium text-[#2D5A27]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    Advances every 24 hours &amp; with every tribute vote
+                  </span>
+                  {userVotes > 0 && (
+                    <span className="text-[#E8722A] font-semibold">
+                      You have lit {userVotes} memorial candle{userVotes === 1 ? '' : 's'} in her honor
+                    </span>
+                  )}
+                </div>
 
                 <button
                   type="button"
                   onClick={handleLightCandle}
-                  disabled={hasLitCandle}
-                  className={`mt-3 w-full py-2.5 px-4 rounded-xl text-xs font-bold uppercase tracking-wider cursor-pointer transition-all ${
-                    hasLitCandle
-                      ? 'bg-[#2D5A27] text-white cursor-default'
-                      : 'bg-[#E8722A] hover:bg-[#D4601A] text-white shadow-sm hover:shadow'
-                  }`}
+                  className="mt-3.5 w-full py-2.5 px-4 rounded-xl text-xs font-bold uppercase tracking-wider cursor-pointer transition-all bg-[#E8722A] hover:bg-[#D4601A] active:scale-[0.98] text-white shadow-sm hover:shadow flex items-center justify-center gap-2"
                 >
-                  {hasLitCandle ? '✓ Your Candle Shines in Memory' : 'Light a Memorial Candle'}
+                  <Flame className="w-4 h-4 text-white" />
+                  <span>
+                    {userVotes === 0 ? 'Light a Memorial Candle (+1)' : 'Vote / Light Another Candle (+1)'}
+                  </span>
                 </button>
               </div>
 
