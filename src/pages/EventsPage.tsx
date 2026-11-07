@@ -37,7 +37,7 @@ export function EventsPage({
       date: '07 November 2026 · 10H30',
       location: '5579 Cinnibar Street, Ext 8 Ennerdale',
       themeVerse: 'Jeremiah 30:17 — "You will be healed and restored."',
-      videoUrl: 'https://www.facebook.com/share/v/1FufaCjHDy/',
+      videoUrl: 'https://web.facebook.com/share/v/1E6hPKZBoU/',
       attributes: [
         { label: 'Event Focus', value: "Women's Event: Worship · Encouragement · Healing · Purpose" },
         { label: 'Presiding Host', value: 'Bishop Leona Swartz ("Ma Bishop")' },
@@ -45,7 +45,7 @@ export function EventsPage({
         { label: 'Date & Time', value: 'Saturday, 07 November 2026 at 10h30' },
         { label: 'Venue Location', value: '5579 Cinnibar Street, Ext 8 Ennerdale' },
         { label: 'Admission', value: 'Free Entrance (All Women Welcome)' },
-        { label: 'Video Broadcast', value: 'Watch on Facebook: facebook.com/share/v/1FufaCjHDy' },
+        { label: 'Video Broadcast', value: 'Watch on Facebook: web.facebook.com/share/v/1E6hPKZBoU' },
         { label: 'RSVP / Contact', value: 'Bishop Leona: 081 041 0673' },
         { label: 'Heart Motto', value: 'Come and be healed · You are not alone' },
       ],
@@ -311,7 +311,7 @@ export function EventsPage({
                         Watch Official Event Video on Facebook
                       </span>
                       <span className="text-[11px] text-[#2B2B2B]/75 block">
-                        Changing Life Ministries broadcast &middot; facebook.com/share/v/1FufaCjHDy
+                        Changing Life Ministries broadcast &middot; web.facebook.com/share/v/1E6hPKZBoU
                       </span>
                     </div>
                   </div>

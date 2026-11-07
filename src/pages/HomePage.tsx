@@ -461,7 +461,7 @@ export function HomePage({ whoWeAreImageSrc, onOpenLightbox }: HomePageProps) {
 
                 {/* Official Facebook Video Broadcast Link */}
                 <a
-                  href="https://www.facebook.com/share/v/1FufaCjHDy/"
+                  href="https://web.facebook.com/share/v/1E6hPKZBoU/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between p-3.5 bg-gradient-to-r from-[#1877F2]/10 via-[#1877F2]/5 to-[#FFF9F0] border border-[#1877F2]/30 rounded-2xl hover:bg-[#1877F2]/15 hover:border-[#1877F2]/50 transition-all group shadow-2xs"
@@ -475,7 +475,7 @@ export function HomePage({ whoWeAreImageSrc, onOpenLightbox }: HomePageProps) {
                         Watch Official Event Video on Facebook
                       </span>
                       <span className="text-[11px] text-[#2B2B2B]/75 block">
-                        Changing Life Ministries broadcast &middot; facebook.com/share/v/1FufaCjHDy
+                        Changing Life Ministries broadcast &middot; web.facebook.com/share/v/1E6hPKZBoU
                       </span>
                     </div>
                   </div>
@@ -510,7 +510,7 @@ export function HomePage({ whoWeAreImageSrc, onOpenLightbox }: HomePageProps) {
 
                 <div className="flex flex-wrap items-center gap-3 pt-2">
                   <a
-                    href="https://www.facebook.com/share/v/1FufaCjHDy/"
+                    href="https://web.facebook.com/share/v/1E6hPKZBoU/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-5 py-3 bg-[#1877F2] hover:bg-[#1567d3] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-[0.98]"
