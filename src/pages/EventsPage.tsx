@@ -6,7 +6,7 @@
 import React, { useState } from 'react';
 import { LogoEmblem } from '../components/Logo.tsx';
 import { MinistryEvent } from '../types/index.ts';
-import { Calendar, MapPin, ArrowLeft, ArrowRight, ZoomIn, BookOpen, Phone, Sparkles } from 'lucide-react';
+import { Calendar, MapPin, ArrowLeft, ArrowRight, ZoomIn, BookOpen, Phone, Sparkles, Play, ExternalLink } from 'lucide-react';
 
 import healingIdentityWoundsImg from '../assets/images/healing_identity_wounds.jpg';
 import herHonourRestoredImg from '../assets/images/her_honour_restored.jpg';
@@ -37,6 +37,7 @@ export function EventsPage({
       date: '07 November 2026 · 10H30',
       location: '5579 Cinnibar Street, Ext 8 Ennerdale',
       themeVerse: 'Jeremiah 30:17 — "You will be healed and restored."',
+      videoUrl: 'https://www.facebook.com/share/v/1FufaCjHDy/',
       attributes: [
         { label: 'Event Focus', value: "Women's Event: Worship · Encouragement · Healing · Purpose" },
         { label: 'Presiding Host', value: 'Bishop Leona Swartz ("Ma Bishop")' },
@@ -44,6 +45,7 @@ export function EventsPage({
         { label: 'Date & Time', value: 'Saturday, 07 November 2026 at 10h30' },
         { label: 'Venue Location', value: '5579 Cinnibar Street, Ext 8 Ennerdale' },
         { label: 'Admission', value: 'Free Entrance (All Women Welcome)' },
+        { label: 'Video Broadcast', value: 'Watch on Facebook: facebook.com/share/v/1FufaCjHDy' },
         { label: 'RSVP / Contact', value: 'Bishop Leona: 081 041 0673' },
         { label: 'Heart Motto', value: 'Come and be healed · You are not alone' },
       ],
@@ -292,6 +294,34 @@ export function EventsPage({
                 </div>
               )}
 
+              {/* Official Facebook Video Broadcast Banner */}
+              {currentEvent.videoUrl && (
+                <a
+                  href={currentEvent.videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3.5 bg-gradient-to-r from-[#1877F2]/10 via-[#1877F2]/5 to-[#FFF9F0] border border-[#1877F2]/30 rounded-2xl hover:bg-[#1877F2]/15 hover:border-[#1877F2]/50 transition-all group shadow-2xs"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-[#1877F2] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                      <Play className="w-4 h-4 fill-white ml-0.5" />
+                    </div>
+                    <div>
+                      <span className="block text-xs sm:text-sm font-bold text-[#1877F2]">
+                        Watch Official Event Video on Facebook
+                      </span>
+                      <span className="text-[11px] text-[#2B2B2B]/75 block">
+                        Changing Life Ministries broadcast &middot; facebook.com/share/v/1FufaCjHDy
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-xs font-bold text-[#1877F2] flex items-center gap-1 shrink-0 bg-white/80 px-3 py-1.5 rounded-xl border border-[#1877F2]/20 group-hover:bg-[#1877F2] group-hover:text-white transition-colors">
+                    <span>Watch Video</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </span>
+                </a>
+              )}
+
               <p className="text-sm sm:text-base text-[#2B2B2B] leading-relaxed">
                 {currentEvent.summary}
               </p>
@@ -315,6 +345,19 @@ export function EventsPage({
 
               {/* Event Actions & Direct RSVP */}
               <div className="flex flex-wrap items-center gap-3 pt-1">
+                {currentEvent.videoUrl && (
+                  <a
+                    href={currentEvent.videoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-2.5 bg-[#1877F2] hover:bg-[#1567d3] active:scale-[0.98] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-xs flex items-center gap-2 cursor-pointer"
+                  >
+                    <Play className="w-4 h-4 fill-white text-white" />
+                    <span>Watch on Facebook</span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                  </a>
+                )}
+
                 {activeImageSrc && (
                   <button
                     type="button"

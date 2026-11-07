@@ -14,6 +14,7 @@ export interface MinistryEvent {
   date: string;
   location: string;
   themeVerse?: string;
+  videoUrl?: string;
   attributes: { label: string; value: string }[];
   summary: string;
   extendedStory?: string;

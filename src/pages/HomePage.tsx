@@ -25,6 +25,8 @@ import {
   Award,
   ZoomIn,
   Phone,
+  Play,
+  ExternalLink,
 } from 'lucide-react';
 import healingIdentityWoundsImg from '../assets/images/healing_identity_wounds.jpg';
 
@@ -457,6 +459,32 @@ export function HomePage({ whoWeAreImageSrc, onOpenLightbox }: HomePageProps) {
                   </p>
                 </div>
 
+                {/* Official Facebook Video Broadcast Link */}
+                <a
+                  href="https://www.facebook.com/share/v/1FufaCjHDy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3.5 bg-gradient-to-r from-[#1877F2]/10 via-[#1877F2]/5 to-[#FFF9F0] border border-[#1877F2]/30 rounded-2xl hover:bg-[#1877F2]/15 hover:border-[#1877F2]/50 transition-all group shadow-2xs"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-[#1877F2] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                      <Play className="w-4 h-4 fill-white ml-0.5" />
+                    </div>
+                    <div>
+                      <span className="block text-xs sm:text-sm font-bold text-[#1877F2]">
+                        Watch Official Event Video on Facebook
+                      </span>
+                      <span className="text-[11px] text-[#2B2B2B]/75 block">
+                        Changing Life Ministries broadcast &middot; facebook.com/share/v/1FufaCjHDy
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-xs font-bold text-[#1877F2] flex items-center gap-1 shrink-0 bg-white/80 px-3 py-1.5 rounded-xl border border-[#1877F2]/20 group-hover:bg-[#1877F2] group-hover:text-white transition-colors">
+                    <span>Watch Video</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </span>
+                </a>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm pt-1">
                   <div className="flex items-center gap-2 text-[#2B2B2B]">
                     <Calendar className="w-4 h-4 text-[#E8722A] shrink-0" />
@@ -481,10 +509,21 @@ export function HomePage({ whoWeAreImageSrc, onOpenLightbox }: HomePageProps) {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 pt-2">
+                  <a
+                    href="https://www.facebook.com/share/v/1FufaCjHDy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-3 bg-[#1877F2] hover:bg-[#1567d3] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-[0.98]"
+                  >
+                    <Play className="w-4 h-4 fill-white text-white" />
+                    <span>Watch Event Video</span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                  </a>
+
                   <button
                     type="button"
                     onClick={() => navigate('/events')}
-                    className="px-6 py-3 bg-[#2D5A27] hover:bg-[#1F3E1B] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-[0.98]"
+                    className="px-5 py-3 bg-[#2D5A27] hover:bg-[#1F3E1B] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-[0.98]"
                   >
                     <span>View Event &amp; Details</span>
                     <ArrowRight className="w-4 h-4" />
@@ -494,7 +533,7 @@ export function HomePage({ whoWeAreImageSrc, onOpenLightbox }: HomePageProps) {
                     href="https://wa.me/27810410673?text=Hi%20Bishop%20Leona,%20I%20would%20like%20to%20RSVP%20for%20the%20Healing%20Identity%20Wounds%20Women's%20Event%20on%2007%20November%202026."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-3 bg-[#E8722A] hover:bg-[#D4601A] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-[0.98]"
+                    className="px-5 py-3 bg-[#E8722A] hover:bg-[#D4601A] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-[0.98]"
                   >
                     <Phone className="w-4 h-4" />
                     <span>RSVP to Bishop Leona (081 041 0673)</span>
